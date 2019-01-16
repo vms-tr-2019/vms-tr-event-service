@@ -11,8 +11,9 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
 
+import vms.vmsevents.dto.CompleteRecord;
 import vms.vmsevents.dto.OperationStatusEnum;
-import vms.vmsevents.dto.RecordCurrentDTO;
+// import vms.vmsevents.dto.RecordCurrentDTO;
 import vms.vmsevents.jpa.MFRecordCurrentJPA;
 import vms.vmsevents.jpa.MTRecordCurrentJPA;
 import vms.vmsevents.service.RecordsService;
@@ -71,7 +72,8 @@ import vms.vmsevents.service.RecordsService;
 		
 		@Test
 		public void completeREcord() {
-			assertEquals(service.completeRecord(1, "Hi"), OperationStatusEnum.OK);
+			CompleteRecord record = new CompleteRecord(1, "Hi", 1);
+			assertEquals(service.completeRecord(record), OperationStatusEnum.OK);
 			assertEquals(service.getAllArchiveRecord(LocalDate.now(), LocalDate.now()).size(), 2);
 
 		}
