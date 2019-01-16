@@ -33,8 +33,6 @@ public class MTRecordCurrentJPA {
 	int machineId;
 	@Column(name = "sensor_id")
 	int sensorId;
-	@Column(name="value")
-  int value;
 	@Column(name = "user_id")
 	int userId;
 
